@@ -1,0 +1,627 @@
+--- Page 1 ---
+Préparation et 
+exploration des données
+Arfaoui Ahlem
+--- Page 2 ---
+Plan
+• Techniques de nettoyage des données
+• Techniques de transformation des données
+• Gestion des valeurs manquantes 
+• Gestion des valeurs aberrantes
+• Sélection des caractéristiques et réduction de la 
+dimensionnalité
+• Analyse exploratoire des données (EDA)
+--- Page 3 ---
+Définir un problème et proposer une solution
+• Que cherche-t-on à résoudre ? 
+➢ Formuler le problème d’une manière précise et concise
+➢ Exemples :
+❖  Je veux un programme qui détermine l’espèce d’une fleur.
+➔Classification
+❖ Je veux un programme capable d’estimer le prix des appartements.
+➔Régression
+.
+--- Page 4 ---
+Définir un problème et proposer une solution
+➢ Exemples :
+❖ Je veux un programme qui permet d’extraire les objets dans les 
+images(segmentation).
+➔Catégorisation / Classification
+❖ Je veux programmer le jeu d’échec.
+➔Apprentissage par renforcement
+❖ Je veux un programme qui regroupe, ensemble, les images similaires dans une 
+base.
+➔Catégorisation
+--- Page 5 ---
+Préparation des données
+2.1 Construire l’ensemble de données ➔Quelles données ?
+• Identifier les sources de données
+• Collecter des données brutes
+❖ Exploitables
+• Sous quel format ?
+✓ Ensembles de données différents en taille et en nature
+✓ Exemples : papier, table d’une BD, fichier Excel, image, vidéo, ….
+➔Représentation des instances=ATTRIBUTS (Features)
+--- Page 6 ---
+Préparation des données
+2.1 Construire l’ensemble de données ?
+• Chaque instance/observation 𝒙 est représentée par 𝒅 attributs.
+𝑥 = {𝑥1, … , 𝑥𝑖, … 𝑥𝑑}
+• Nous possédons un échantillon de données qui contient 𝒎 instances 
+𝑜1, … , 𝑜𝑗, … , 𝑜𝑚
+• L’ensemble de données seront sous la forme 
+d’une matrice de taille 𝒎 × 𝒅
+
+--- Page 7 ---
+Préparation des données
+2.1 Construire l’ensemble de données?
+• Quels sont les types/natures des attributs 𝑥𝑖 ?
+❖ Données qualitatives (catégorielles)
+➢ Données ordinales
+• Un ordre total est présent entre les valeurs possibles.
+➢ Exemple: Pas du tout d’accord / Pas d’accord / Ni en
+désaccord ni d’accord / D’accord / Tout à fait d’accord),
+etc.
+--- Page 8 ---
+Préparation des données
+❖ Données qualitatives (catégorielles)
+➢ Données nominales
+• Catégorie socioprofessionnelle
+• Différentes valeurs possibles ne sont pas comparables, elles peuvent 
+seulement être identiques oudifférentes
+➢ Exemple : nom de marque, noms des pays, etc
+--- Page 9 ---
+Préparation des données
+2.1 Construire l’ensemble de données?
+• Quels sont les types/natures des attributs 𝑥𝑖 ?
+❖ Données Quantitatives (Numériques)
+➢ Données continues
+• Données entières ou réelles
+➢  Exemples : âge, salaire, température, date, prix, durée …
+--- Page 10 ---
+Préparation des données
+2.1 Construire l’ensemble de données?
+❖ Données Quantitatives (Numériques)
+➢ Données discrètes
+• Données binaires : 0 ou 1
+• Données énumératives non ordonnées: Données discrètes pour 
+lesquelles il n'y a pas d'ordre comme code postal…
+• Données énumératives ordonnées: Réponses à une enquête d’opinion  
+1:très satisfait, 2:satisfait, …. Ou Discrétisation de données continues 
+1: solde moyen < 2000; 2: 2000 < solde moyen < 5000; …
+--- Page 11 ---
+Préparation des données
+2.1 Construire l’ensemble de données?
+❖ Données Quantitatives (Numériques)
+➢ Données discrètes
+• Données binaires : 0 ou 1
+• Données énumératives non ordonnées: Données discrètes pour 
+lesquelles il n'y a pas d'ordre comme code postal…
+• Données énumératives ordonnées: Réponses à une enquête d’opinion  
+1:très satisfait, 2:satisfait, …. Ou Discrétisation de données continues 
+1: solde moyen < 2000; 2: 2000 < solde moyen < 5000; …
+--- Page 12 ---
+Préparation des données
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ L’utilisation de la bibliothèque Pandas:
+• Pandas est une bibliothèque open-source en Python utilisée pour la manipulation 
+et l’analyse de données tabulaires (DataFrame).
+❖ Importer et sauvegarder des données
+• Pandas permet d’importer et d’exporter des fichiers de différents formats.
+--- Page 13 ---
+Préparation des données:
+❑ Comment vais-je apprendre à coder et à travers Python ?
+➢ Exemple :Importer un fichier CSV
+➢ Exemple :Sauvgarder un fichier CSV
+df = pd. read_csv (" fichier . csv")
+df  = pd. read_xlsx (" fichier . xlsx ")
+df = pd. read_json (" file . json ")
+df. to_csv (" fichier_sortie . csv", index = False )
+df. to_excel (" output . xlsx ", index = False )
+df. to_json (" output . json ", orient =" records ")
+--- Page 14 ---
+Préparation des données:
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Connexion avec SQL database
+Install Required Libraries
+Connect to a SQL Database
+import pandas as pd
+from sqlalchemy import create_engine
+# Remplacer par les informations
+username = " your_username "
+password = " your_password "
+pip install sqlalchemy mysql-connector-python psycopg2
+--- Page 15 ---
+Préparation des données:
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Connexion avec SQL database
+Connect to a SQL Database
+host = " your_host "
+database = " your_database «
+# Créer un moteur
+engine = create_engine (f" mysql + mysqlconnector : //{ username { password 
+}@{ host }/{ database }")
+# Tester la connexion
+df = pd. read_sql (" SELECT * FROM your_table ", engine )
+--- Page 16 ---
+Préparation des données:
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Connexion avec SQL database
+➢ Exemple PostgreSQL
+engine = create_engine (" postgresql + psycopg2 :// username : password@host 
+/ database_name ")
+df = pd. read_sql (" SELECT * FROM your_table ", engine )
+--- Page 17 ---
+Exploration des données
+❖ Définition
+• L’exploration des données consiste à analyser et comprendre le jeu de 
+données avant toute modélisation.
+• L’objectif  est de :
+➢ Découvrir la structure des données (types, taille, variables, etc.)
+➢ Détecter les erreurs, valeurs manquantes, doublons ou valeurs aberrantes
+➢ Décrire les tendances et relations entre les variables
+➢ Orienter les étapes suivantes (prétraitement, choix du modèle, etc.)
+--- Page 18 ---
+Exploration des données
+❑ Compréhension du jeu de données
+• Cette première sous-étape vise à identifier la nature des données :
+➢ Combien d’observations et de variables ?
+➢ Quels sont les types de variables ? (numériques, catégorielles, textuelles, 
+temporelles…)
+➢ Quelle est la signification de chaque colonne ? (via le dictionnaire de 
+données si disponible)
+--- Page 19 ---
+Exploration des données
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Explorer un DataFrame
+Il est essentiel d’explorer un DataFrame pour mieux comprendre les données
+qu’il contient. 
+Afficher la taille du dataframe
+➔ Dimensions (lignes, colonnes) ➔ Tuple
+➔ Nombre total d’éléments ➔ Entier
+df.shape
+df.size
+--- Page 20 ---
+Exploration des données
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Explorer un DataFrame
+Afficher les premières et dernières lignes
+Informations générales sur les données
+La méthode info() permet d’obtenir un résumé complet de la structure d’un 
+DataFrame. ➔ print (df.info())
+• Cela permet de savoir immédiatement : combien il y a de lignes/colonnes,
+s’il y a des valeurs manquantes, et les types de données à traiter.
+print (df. head ()) # Affiche les 5 premiers lignes
+print (df. tail ()) # Affiche les 5 derniers lignes
+--- Page 21 ---
+Exploration des données
+Statistiques descriptives
+• La méthode describe() donne des statistiques descriptives des colonnes
+numériques par défaut (moyenne, écart-type, min, max, etc.).
+Ligne Signification
+count Nombre de valeurs non nulles (≠ NaN)
+mean Moyenne arithmétique
+std Écart-type (dispersion des valeurs)
+min Valeur minimale
+25% Premier quartile (25 % des valeurs sont ≤ à ce nombre)
+50% Médiane
+75% Troisième quartile (75 % des valeurs sont ≤ à ce nombre)
+max Valeur maximale
+--- Page 22 ---
+Exploration des données
+❑ Comment vais-je apprendre à coder et à travers Python ?
+❖ Explorer un DataFrame
+print (df. describe ())
+print (df. describe ( include =’object ’))
+print (df. describe ( include =’bool ’))
+print (df. describe ( include =’all ’))
+print (df. describe ( exclude =’number ’))
+print (df. describe ( exclude =’object ’))
+--- Page 23 ---
+Transformation des données
+2.1 Transformer les données… Pourquoi!?
+• D’une part, la plupart des algorithmes utilisés nécessite de données sous un 
+format spécifique.
+• D’autre part, les données peuvent contenir des informations manquantes, 
+redondantes, invalides, erronées et inconsistantes. Difficile à traiter par les 
+algorithmes.
+• Conduit à des résultats non précis et même erronés.
+➔Un "Bon" protocole de préparation de données donne de "Bonnes données" 
+qui conduisent à un résultat de prédiction plus fiable
+--- Page 24 ---
+Transformation des données
+2.1 Transformer les données
+A.La discrétisation des données continues
+• Certains algorithmes ne sont pas capables de traiter les attributs à valeur 
+continue
+         ➔ II est nécessaire de les transformer en attributs à valeurs discrètes.
+❖ Définition
+La discrétisation consiste à transformer une variable numérique continue 
+(comme un âge, un salaire, une température, etc.) en catégories (ou intervalles).
+➢ Exemples:
+• 1: solde moyen < 2000; 2: 2000 < solde moyen < 5000; …
+• froid : température<12 ; doux 13<Température<25 ; chaude température>25
+--- Page 25 ---
+Transformation des données
+2.1 Transformer les données
+A.La discrétisation des données continues
+➢ Exemple:
+Âge Catégorie
+0–18 Jeune
+19–40 Adulte
+41–65 Sénior
+>65 Âgé
+--- Page 26 ---
+Transformation des données
+A.La discrétisation des données continues
+Pourquoi discrétiser ?
+Raison Explication
+Simplification Facilite l’interprétation des données (par ex. pour un modèle ou un graphique).
+Préparation de certains 
+algorithmes
+Certains modèles préfèrent des variables 
+catégorielles (ex. arbre de décision, Naive 
+Bayes).
+Réduction du bruit Moins sensible aux petites variations dans les valeurs continues.
+Amélioration de la lisibilité Plus facile à comprendre pour l’analyse humaine.
+--- Page 27 ---
+Transformation des données
+A.La discrétisation des données continues
+Exemple avec Code:
+• Supposons que tu as une colonne numérique :
+import pandas as pd
+data = pd.DataFrame({
+'age': [5, 17, 23, 35, 48, 62, 70]
+})
+• Discrétisation avec intervalles définis manuellement*
+bins = [0, 18, 40, 65, 100]  # bornes
+labels = ['Jeune', 'Adulte', 'Sénior', 'Âgé']
+data['categorie_age'] = pd.cut(data['age'], bins=bins, labels=labels)
+print(data)
+--- Page 28 ---
+Transformation des données
+A.La discrétisation des données continues
+Exemple avec Code:
+Résultat:
+    age     categorie_age
+0    5         Jeune
+1   17         Jeune
+2   23        Adulte
+3   35        Adulte
+4   48        Sénior
+5   62        Sénior
+6 70           Âgé
+Élément Rôle
+bins Bornes des intervalles (limites des classes)
+labels Noms attribués à chaque intervalle
+pd.cut() Associe chaque valeur à un intervalle et un label
+right=True/False Définit si les bornes droites sont incluses
+--- Page 29 ---
+Transformation des données
+2.1 Transformer les données
+B. La description de données imprécises
+• Pour certaines manipulations, comme des calculs de distance, des calculs de 
+moyenne, il est préférable de modifier les types de certains attributs.
+Qu’est-ce qu’une donnée imprécise ?
+Une donnée est dite imprécise quand on ne peut pas lui attribuer une seule valeur 
+exacte, mais plutôt :
+• un intervalle
+• une fourchette
+• un label linguistique (ex: “jeune”, “chaud”, “lent”)
+• une probabilité ou possibilité (logique floue)
+--- Page 30 ---
+Transformation des données
+2.1 Transformer les données
+➢ Exemples
+• Convertir la date de naissance en âge
+• Convertir la date d’abonnement en durée
+• 1: Pas du tout d’accord; 2: Pas d’accord; 3: Ni en désaccord ni d’accord, …
+• 1: Enseignant ;2: Médecin; 3:Technicien
+• Taille ≈ entre 1,70 m et 1,75 m➔ Taille = 1,72 m
+• Température = forte fièvre➔ Température = 38.4°C
+--- Page 31 ---
+Transformation des données
+2.1 Transformer les données
+C. Normalisation : Uniformisation d'échelle
+Pourquoi parle-t-on d’uniformisation d’échelle ?
+• Dans un jeu de données, les variables numériques peuvent être exprimées sur 
+des échelles très différentes :
+Variable Valeurs typiques
+Âge 0 – 100
+Salaire (DT) 0 – 10 000
+Taille (m) 1.4 – 2.0
+Distance (km) 0 – 5000
+--- Page 32 ---
+Transformation des données
+2.1 Transformer les données
+C. Normalisation : Uniformisation d'échelle
+• Si on laisse ces échelles telles quelles :
+✓ les algorithmes vont donner plus d’importance aux variables dont les 
+valeurs sont grandes
+✓ les calculs de distance (KNN, K-means…), gradient, etc., deviennent 
+déséquilibrés
+➔ Résultat : le modèle est biaisé.
+❖ La solution : Normalisation (Uniformisation d’échelle)
+• La normalisation consiste à ramener toutes les variables sur la même 
+échelle, souvent entre 0 et 1, ou autour de 0 avec un écart-type de 1.
+➔ Toutes les variables pèsent de manière équivalente dans les calculs.
+--- Page 33 ---
+Transformation des données
+2.1 Transformer les données
+C. Normalisation : Uniformisation d'échelle
+• Les méthodes les plus connues:
+Méthode Formule Intervalle obtenu Cas d’usage
+Min-Max Scaling (x − min) / (max − min) [0, 1] KNN, Régression logistique, Réseaux neuronaux
+Standardisation 
+(Z-score) (x − μ) / σ Moyenne = 0, Écart-type = 1 SVM, Régression linéaire, PCA
+Robust Scaling (x − médiane) / IQR Centré mais robuste aux outliers Données avec valeurs extrêmes
+--- Page 34 ---
+Transformation des données
+2.1 Transformer les données
+C. Normalisation : Uniformisation d'échelle
+• Les méthodes les plus connues:
+❖ Méthode 1:
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+data[['age', 'salaire']] = scaler.fit_transform(data[['age', 'salaire’]])
+❖ Méthode 2:
+from sklearn.preprocessing import StandardScaler
+scaler_standard = StandardScaler()
+data_standard[['age', 'salaire']] = scaler_standard.fit_transform(data[['age', 
+'salaire']])
+--- Page 35 ---
+Transformation des données
+2.1 Transformer les données
+C. Normalisation : Uniformisation d'échelle
+• Les méthodes les plus connues:
+❖ Méthode 3:
+from sklearn.preprocessing import RobustScaler
+scaler_robust = RobustScaler()
+data_robust[['age', 'salaire']] = scaler_robust.fit_transform(data[['age', 'salaire']])
+--- Page 36 ---
+Transformation des données
+2.1 Transformer les données
+D. Données non ou partiellement représentatives
+• Un jeu de données est dit non représentatif lorsqu’il présente l’un des 
+problèmes suivants
+Problème Exemple Conséquence
+Échantillon trop petit 50 patients seulement Le modèle apprend mal et ne généralise pas
+Échantillon biaisé 90% d’hommes, 10% de femmes Le modèle favorise le groupe majoritaire
+Données collectées dans un 
+seul contexte
+Collecte dans une seule ville, 
+une seule saison, etc.
+Impossible de généraliser à 
+d’autres situations
+Pas toutes les classes 
+représentées
+En classification maladie : 95% 
+“non malade” vs 5% “malade”
+Le modèle va toujours prédire 
+“non malade”
+--- Page 37 ---
+Transformation des données
+2.1 Transformer les données
+D. Données non ou partiellement représentatives
+❖ Solution
+Solution Action à faire
+Collecter plus de données Élargir la zone, la période, les profils…
+Rééquilibrer les classes techniques : oversampling, undersampling, SMOTE
+Filtrer les données non pertinentes supprimer les cas hors périmètre d’étude
+Segmenter (stratifier) échantillons équilibrés par âge, sexe, région…
+➔ Une donnée non représentative est une donnée qui ne décrit pas 
+correctement la réalité que l'on étudie.
+➔ Pour avoir un bon modèle, il faut des données variées, équilibrées, et 
+suffisantes.
+--- Page 38 ---
+Transformation des données
+2.1 Transformer les données
+D. Classes déséquilibrées
+❖ Détection du déséquilibre
+print(data['target'].value_counts())
+print(data['target'].value_counts(normalize=True) * 100)
+❖ Correction
+▪ SMOTE (solution la plus efficace)
+from imblearn.over_sampling import SMOTE
+smote = SMOTE()
+X_res, y_res = smote.fit_resample(X, y)
+print(y_res.value_counts())
+--- Page 39 ---
+Transformation des données
+2.1 Transformer les données
+D. Classes déséquilibrées
+❖ Détection du déséquilibre
+▪ class_weight (sans modifier les données)
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression(class_weight='balanced')
+model.fit(X, y)
+--- Page 40 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+• Les données aberrantes (ou outliers) sont des valeurs anormales, extrêmes 
+ou incohérentes par rapport au reste du jeu de données. 
+• Elles sont souvent très éloignées de la majorité des observations et peuvent 
+fausser les analyses et dégrader les performances des modèles.
+➢ Exemple:
+--- Page 41 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+➢ Exemple:
+Variable Valeur normale Valeur aberrante Cause
+Âge 1 → 100 ans 350 ans Erreur de saisie
+Salaire 800 → 10 000 dt/mois 999 999 dt Erreur de saisie
+Taille 1.50 → 2.10 m 4.50 m Mauvaise unité
+Température 
+corporelle 36 → 40°C 120°C Problème capteur/senseur
+➔ Ces valeurs ne sont pas réalistes ou très isolées → ce sont des outliers.
+--- Page 42 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+• Les outliers peuvent :
+➢ Tirer la moyenne vers le haut ou le bas
+➢ Fausser les modèles sensibles (ex : régression linéaire, KNN)
+➢ Augmenter la variance
+➢ Générer de mauvais clusters (K-means par exemple)
+Comment détecter les données aberrantes ?
+Méthode Description
+Boxplot (IQR) détecte les points au-delà de Q1 − 1.5×IQR ou Q3 + 1.5×IQR
+Z-Score (ou score normalisé) indique à quelle distance se trouve une valeur par rapport à la moyenne, en nombre d’écarts-types.
+Visualisation (boxplot, scatterplot) repérer visuellement
+--- Page 43 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+❖ Solution
+Stratégie Quand l’utiliser
+Supprimer les outliers erreur de saisie évidente
+Les corriger si l’on connaît la vraie valeur
+Transformer (log, sqrt) réduire l’impact des valeurs extrêmes
+Les conserver si elles sont réelles et pertinentes
+--- Page 44 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+❖ Identification en Python
+Q1 = df['A'].quantile(0.25)  # 1er quartile (25%)
+Q3 = df['A'].quantile(0.75)  # 3ème quartile (75%)
+IQR = Q3 - Q1
+LB= Q1 - 1.5 * IQR
+UB=Q3 + 1.5 * IQR
+outliers = df[(df['A'] < (LB)) | (df['A'] > (UB))]
+print(outliers)
+--- Page 45 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+❖ Correction
+➢ Supprimer:
+df  = df[(df['A'] >= (Q1 - 1.5 * IQR)) & (df['A'] <= (Q3 + 1.5 * IQR))]
+data[A] = np.where(data[A] > upper_bound, data[A].median(), data[A])
+data[A] = np.where(data[A] < lower_bound, data[A].median(), data[A])
+➢ Midian
+--- Page 46 ---
+Transformation des données
+2.1 Transformer les données
+E. Données aberrantes
+❖ Correction
+➢ Zscore:
+from scipy import stats
+import numpy as np
+z_scores = stats.zscore(data[A])
+outliers = data[np.abs(z_scores) > 3]
+print(outliers)
+La formule:
+
+--- Page 47 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+Les données manquantes(ou missing data) sont des valeurs absentes dans un jeu 
+de données, souvent représentées par NaN, null, ou des cases vides. Elles sont très 
+fréquentes en data science et peuvent poser des problèmes lors de l’analyse ou de 
+l’entraînement d’un modèle.
+➢ Exemple:
+
+--- Page 48 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+❖ Identification en Python
+❖ Correction pour des données numériques  
+*Moyenne: 
+df.isnull()  ou bien df.isnull().sum
+df["Age"].fillna(df["Age"].mean(), inplace=True)
+df["Salaire"].fillna(df["Salaire"].mean(), inplace=True)
+--- Page 49 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+❖ Correction pour des données numériques  
+*Médian
+*Constante
+df["Age"].fillna(df["Age"].median(), inplace=True)
+df["Salaire"].fillna(df["Salaire"].median(), inplace=True))
+df["Age"].fillna(0, inplace=True)
+df["Salaire"].fillna(1000, inplace=True)
+--- Page 50 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+Correction pour des Valeurs Catégoriques (Objets)
+*Mode : Remplacement par la valeur la plus fréquente dans la colonne.
+.
+*Constante: Remplacement par une valeur arbitraire définie par l’utilisateur.
+df["Couleur"].fillna(df["Couleur"].mode()[0], inplace=True)
+df["Ville"].fillna("Inconnu", inplace=True)
+--- Page 51 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+Correction pour des Valeurs Catégoriques (Objets)
+* ffill (Forward Fill) : Remplace par la valeur précédente.
+.
+*bfill (Backward Fill) :Remplace par la valeur suivante.
+df["Sexe"].fillna(method=“ffill", inplace=True)
+df["Sexe"].fillna(method="bfill", inplace=True)
+--- Page 52 ---
+Transformation des données
+2.1 Transformer les données
+F . Données manquantes
+Supprimer les données Null
+* Supprimer les lignes avec NaN.
+.
+* Supprimer seulement les colonnes trop vides
+df = df.dropna()
+data = data.dropna(axis=1)
+--- Page 53 ---
+Transformation des données
+2.1 Transformer les données
+h. Données Redondantes
+Identification en Python
+.
+Correction.
+df. duplicated ( ).sum()
+df.drop_duplicates ( keep=’ first’ , inplace=True )
+--- Page 54 ---
+Transformation des données
+2.1 Transformer les données
+j. Dimension très élevée des données
+• Les données à haute dimension (ou high-dimensional data) apparaissent 
+lorsque le dataset contient beaucoup de variables/features par rapport au 
+nombre d’observations. 
+• Cela peut poser des problèmes sérieux pour l’analyse et l’apprentissage 
+automatique.
+Comment détecter un dataset haute dimension ?
+print(df.shape) 
+Si nombre de colonnes >> nombre de lignes ➔ problème potentiel.
+--- Page 55 ---
+Transformation des données
+2.1 Transformer les données
+j. Dimension très élevée des données
+❖ Solution: Réduction de dimension
+Méthode Description Cas d’usage
+PCA (Principal 
+Component Analysis)
+Transforme les variables en 
+nouvelles variables (composantes) 
+orthogonales et réduit la dimension
+données numériques
+Agrégation
+Cette stratégie consiste à regrouper 
+plusieurs données pour former 
+une seule entité et réduire la taille 
+globale du dataset.
+Sélection de features Choisir seulement les variables pertinentes si certaines colonnes sont inutiles
+--- Page 56 ---
+Transformation des données
+2.1 Transformer les données
+j. Dimension très élevée des données
+❖ Solution: Réduction de dimension
+from sklearn.decomposition import PCA
+# Réduire à 2 dimensions pour visualisation
+pca = PCA(n_components=2)
+data_reduced = pca.fit_transform(data)
+print(data_reduced.shape)

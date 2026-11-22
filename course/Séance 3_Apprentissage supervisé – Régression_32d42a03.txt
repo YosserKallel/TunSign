@@ -1,0 +1,581 @@
+--- Page 1 ---
+Machine Learning 
+Apprentissage Automatique
+--- Page 2 ---
+Apprentissage supervisé: 
+Régression
+Arfaoui Ahlem
+--- Page 3 ---
+Plan
+• Régression linéaire
+• Régression polynomiale
+• Régularisation (Ridge, Lasso, Elastic Net)
+• Métriques d’évaluation des modèles
+--- Page 4 ---
+Introduction
+❑ L’apprentissage automatique: est une branche de l’intelligence artificielle 
+qui permet à un système d’apprendre à partir de données et d’améliorer ses 
+performances sans programmation explicite.
+La machine doit
+récupérer les 
+données
+comme un Input 
+--- Page 5 ---
+Processus d’apprentissage
+Définir un problème 
+de ML et proposer 
+une solution
+Construite l’ensemble 
+de données
+Transformer les 
+données
+Etape 1 Etape 2
+Apprentissage Visualiser les Résultats
+Etape 3Etape 4
+--- Page 6 ---
+Apprentissage supervisé 
+• L'apprentissage supervisé est une forme de machine Learning qui utilise des 
+jeux de données étiquetés pour entraîner des algorithmes.
+• Avec l'apprentissage supervisé, les jeux de données étiquetés permettent à 
+l'algorithme de déterminer les relations entre les informations entrantes et 
+sortantes.
+• Les jeux de données étiquetés servent d'exemples à l'algorithme pour 
+apprendre, comme un étudiant dans une salle de classe structurée.
+• L'algorithme prend ces données pour apprendre les relations, cet apprentissage 
+conduit à un modèle mathématique de prédiction.
+--- Page 7 ---
+Apprentissage supervisé 
+• Le processus d'entraînement est itératif et se répète pour affiner l'algorithme 
+jusqu'à ce que le modèle atteigne un niveau de précision souhaité.
+• Les algorithmes d'apprentissage supervisé appartiennent généralement à l'une 
+des deux catégories suivantes : Classification et Régression
+
+--- Page 8 ---
+Apprentissage supervisé 
+ 
+❑ Objectif:
+• Prendre des décisions 
+• Faire une prédiction
+Données Méthode ML Intelligence
+--- Page 9 ---
+Apprentissage supervisé 
+ ❑ Données:
+Target y x1 x2 x3
+Prix Surface Qualité Adresse postale
+313.000 90 3 95000
+720.000 110 5 93000
+Vecteur Target                         Matrice Feature
+ 𝑦 =
+𝑦1
+𝑦2..
+𝑦𝑚
+                       𝑋 =
+𝑥11 ⋯ 𝑥𝑛1
+⋮ ⋱ ⋮
+𝑥1𝑚 ⋯ 𝑥𝑛𝑚
+(𝑚 × 1)                                         (𝑚 × 𝑛)
+--- Page 10 ---
+Apprentissage supervisé 
+ ❑ Modèle:
+• Un modèle est une représentation simplifiée de la réalité, que l’on peut 
+utiliser pour prédire ce qui se passerait dans certaines conditions
+• Exemple du modèle :Y=f(x)=ax+b
+• paramètre du modèle: a,b
+
+--- Page 11 ---
+Apprentissage supervisé 
+ ❑ Fonction cout:
+Une fonction de coût (aussi appelée loss function ou objective function) est une 
+formule mathématique qui mesure l’écart entre les prédictions du modèle 
+et les valeurs réelles.
+➔L’objectif  de l’apprentissage est de minimiser cette fonction afin 
+d’améliorer la précision du modèle.
+✓ Définition: Une fonction de coût est :
+𝐽 𝜃 = 1𝑚 ෍
+𝑖=1
+𝑚
+𝐿 (𝑦 𝑖 , ො𝑦 𝑖 )
+--- Page 12 ---
+Apprentissage supervisé 
+ ❑ Fonction cout:
+Avec 
+▪ 𝒎 : nombre d’exemples d’apprentissage
+▪ 𝒚 𝒊 : vraie valeur pour l’exemple iii
+▪ ෝ𝒚 𝒊 : prédiction du modèle
+▪ 𝐿: fonction de perte (mesure erreur pour un exemple)
+▪ 𝜽 : paramètres du modèle
+➔ Plus la fonction de coût est faible → meilleures sont les prédictions.
+--- Page 13 ---
+Apprentissage supervisé 
+ ❑ Algorithme de minimisation:
+• C’est une méthode d’optimisation qui ajuste les paramètres du 
+modèle (θ) afin de réduire la fonction de coût 𝑱 𝜽 .
+➔ L’objectif  est de trouver :
+𝜃∗ = 𝑎𝑟𝑔𝑚𝑖𝑛 𝐽 𝜃
+✓ Descente de gradient (Gradient Descent) 
+Principe : on déplace les paramètres dans la direction opposée au gradient 
+(pente de la fonction de coût).
+--- Page 14 ---
+Régression 
+• La régression est une méthode d’apprentissage supervisé utilisée pour prédire 
+une valeur continue à partir d'un ensemble de caractéristiques (features).
+• Elle modélise la relation entre une ou plusieurs variables indépendantes 
+(features) et une variable dépendante (target).
+✓ Exemple :
+▪ Prédire le prix d’une maison en fonction de sa surface, du nombre de chambres 
+et de son emplacement.
+▪ Estimer le salaire en fonction de l’expérience et du niveau d’études.
+▪ Anticiper la consommation d’énergie en fonction de la température extérieure.
+--- Page 15 ---
+Régression 
+❑ Idée de base:
+• La régression cherche à trouver une relation (ou fonction mathématique) entre :
+➢ Variable(s) indépendante(s) (les entrées, notées 𝐗)
+➢ Variable dépendante (la sortie à prédire, notée 𝐘)
+On écrit généralement :
+𝑌 ≈ 𝑓 𝑋 + 𝜀
+où 𝐟 𝐗 est la fonction de prédiction, et 𝛆 représente l’erreur (bruit, imprécisions).
+.
+--- Page 16 ---
+Apprentissage supervisé 
+ 
+Données Régression Intelligence
+linéaire 
+simple
+linéaire 
+multiple polynomiale régularisées avancées
+--- Page 17 ---
+Régression linéaire simple
+• La régression linéaire simple est une méthode statistique et de machine Learning 
+qui permet de modéliser la relation variable explicative, notée 𝑋 et variable à 
+expliquer, notée 𝑌.
+➔ Le but est de prédire 𝑌à partir de 𝑋.
+❑ Modèle mathématique
+𝑌 = 𝛽0 + 𝛽1 𝑋 + 𝜀
+Avec :
+❖ 𝒀 : la variable dépendante (ce qu’on veut prédire, ex. prix d’une maison)
+❖ 𝑿 : la variable indépendante (facteur explicatif, ex. surface de la maison)
+--- Page 18 ---
+Régression linéaire simple
+❖ β0 : l’ordonnée à l’origine (intercept), valeur de 𝑌 quand 𝑋 = 0
+❖ β1 : la pente de la droite, elle indique de combien 𝑌 varie quand 𝑋 augmente 
+d’une unité
+❖ ε: l’erreur aléatoire, qui représente la différence entre la vraie valeur et la valeur 
+prédite par le modèle
+
+--- Page 19 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Méthode des moindres carrés (Ordinary Least Squares, OLS):
+• L’idée est de choisir 𝛽0et 𝛽1qui minimisent la somme des carrés des erreurs 
+entre les valeurs observées et les valeurs prédites.
+𝑚𝑖𝑛𝛽0,𝛽1 ෍
+𝑖=1
+𝑛
+(𝑦𝑖 − 𝛽0 + 𝛽1𝑥𝑖 )2
+
+--- Page 20 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Méthode des moindres carrés (Ordinary Least Squares, OLS):
+✓ Interprétation
+• Si 𝛽1 > 0 :la relation est croissante (plus 𝑋augmente, plus 𝑌augmente).
+• Si 𝛽1 < 0: la relation est décroissante.
+• ∣ 𝛽1 ∣: l’intensité de l’effet de 𝑋sur 𝑌.
+➔ La méthode des moindres carrés consiste à ajuster une droite qui minimise la 
+somme des carrés des écarts entre les valeurs observées et celles prédites. 
+➔ Elle est simple et efficace, mais sensible aux outliers et limitée aux relations 
+linéaires.
+--- Page 21 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Méthode des moindres carrés (Ordinary Least Squares, OLS):
+
+--- Page 22 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Gradient Descent ou descente de gradient
+• Le Gradient Descent est un algorithme d’optimisation utilisé en 
+apprentissage automatique pour trouver les valeurs optimales des paramètres 
+d’un modèle (par exemple les coefficients d’une régression) afin de minimiser 
+une fonction de coût.
+--- Page 23 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Gradient Descent ou descente de gradient
+✓ L’idée est simple :
+1. On commence avec des valeurs aléatoires pour les paramètres.
+2. On calcule le gradient, c’est-à-dire la pente de la fonction de coût par 
+rapport aux paramètres.
+➢ Si le gradient est positif  → il faut diminuer le paramètre.
+➢ Si le gradient est négatif  → il faut augmenter le paramètre.
+3. On met à jour les paramètres petit à petit selon un taux d’apprentissage 
+(Learning rate) :  𝜃𝑛𝑜𝑢𝑣𝑒𝑎𝑢 = 𝜃𝑎𝑛𝑐𝑖𝑒𝑛 − 𝛼 ⋅ ∇𝐽 𝜃
+où : 𝜃= paramètre, 𝛼= learning rate , ∇𝐽 𝜃  =gradient de la fonction de coût
+4. On répète jusqu’à ce que la fonction de coût soit minimale ou qu’elle ne 
+change plus beaucoup.
+--- Page 24 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝜷𝟎et 𝜷𝟏:
+❖ Gradient Descent ou descente de gradient
+• Le gradient te dit dans quelle direction descendre et le Learning rate te dit à 
+quel rythme.
+
+--- Page 25 ---
+Régression linéaire simple
+❖ Gradient Descent ou descente de gradient
+Remarque:
+•Si le learning rate est trop grand → on risque de sauter le minimum.
+•Si le learning rate est trop petit → convergence très lente.
+•Parfois, on peut se coincer dans un minimum local (mais pas toujours grave en 
+pratique).
+✓ Variantes de Gradient Descent
+❖ Batch Gradient Descent : utilise toutes les données à chaque mise à jour → 
+lent mais stable.
+❖ Stochastic Gradient Descent (SGD) : utilise un seul exemple à la fois → 
+plus rapide mais plus bruité.
+❖ Mini-Batch Gradient Descent : utilise un petit sous-ensemble des données 
+→ compromis entre vitesse et stabilité.
+--- Page 26 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+❖ Erreur Quadratique Moyenne (MSE : Mean Squared Error):
+• C’est une mesure d’erreur qu’on utilise souvent en régression pour comparer 
+les valeurs réelles avec les valeurs prédites par un modèle.
+𝑀𝑆𝐸 = 1𝑛 ෍
+𝑖=1
+𝑛
+(𝑦𝑖− ො𝑦𝑖)2
+➔ Le MSE dit donc à quel point en moyenne tes prédictions sont éloignées 
+de la vérité, mais au carré.
+➔Plus ces valeurs sont petites, meilleur est le modèle.
+
+--- Page 27 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+❖ Racine de l’Erreur Quadratique Moyenne (RMSE : Root Mean Squared 
+Error):
+• C’est juste la racine carrée du MSE :
+𝑅𝑀𝑆𝐸 = 𝑀𝑆𝐸
+✓ Pourquoi ?
+• Parce que le MSE est au carré des unités (par exemple si tu prédis un salaire en 
+€ : le MSE sera en €², pas très intuitif).
+➔ En prenant la racine carrée, le RMSE revient à la même unité que les données 
+d’origine, ce qui est plus facile à interpréter.
+--- Page 28 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+•MSE = erreur moyenne au carré (mathématiquement pratique, mais pas toujours 
+intuitif).
+•RMSE = même chose mais remis à l’échelle des données → plus facile à 
+comprendre.
+❖ Erreur absolue moyenne MAE (Mean Absolute Error)
+La MAE mesure la différence moyenne absolue entre les valeurs réelles et les 
+valeurs prédites.
+𝑀𝐴𝐸 =
+1
+𝑛 σ𝑖=1𝑛 |𝑦𝑖- ො𝑦𝑖|
+--- Page 29 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+✓ Différence avec MSE et RMSE:
+• MAE : 
+➢ erreurs en valeur absolue → plus robuste (ne donne pas trop d’importance 
+aux grosses erreurs).
+➢ facile à comprendre, plus robuste aux grandes erreurs.
+• MSE / RMSE : 
+➢ erreurs au carré → punissent plus fortement les grosses erreurs.
+➢ utiles quand on veut pénaliser fort les grosses erreurs.
+--- Page 30 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+❖ Coefficient de détermination 𝑅2:
+• Le 𝑅2indique quelle proportion de la variance des données réelles est 
+expliquée par ton modèle.
+• Il varie généralement entre 0 et 1 (mais peut être négatif  si ton modèle est très 
+mauvais).
+
+--- Page 31 ---
+Régression linéaire simple
+❑ Evaluation ou bien Fonction Cout:
+❖ Coefficient de détermination 𝑅2:
+✓ Interprétation
+• 𝑅2 = 1 →ton modèle explique parfaitement les données (aucune erreur).
+• 𝑅2 = 0 →ton modèle n’explique rien (il ne fait pas mieux que toujours prédire 
+la moyenne).
+• 0 < 𝑅2 < 1 →ton modèle explique une partie de la variance (plus c’est proche 
+de 1, mieux c’est).
+• 𝑅2 < 0 →ton modèle est pire que de toujours prédire la moyenne.
+--- Page 32 ---
+Régression linéaire simple
+❖ Coefficient de détermination 𝑅2:
+
+--- Page 33 ---
+Régression linéaire simple
+❑ Validation croisée (approche machine Learning):
+• Séparer les données en train set (pour ajuster la droite) et test set (pour évaluer)
+• Calculer RMSE ou MAE sur le jeu de test.
+➔ On ajuste le modèle avec les 80 points, puis on calcule l’erreur (RMSE, MAE, R²) 
+sur les 20 restants.
+➔ Cela permet de vérifier la capacité du modèle à généraliser et éviter le 
+surapprentissage (overfitting).
+--- Page 34 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Etape 1: collecter les données
+❖ Etape 2: préparer les données (TP1)
+❖ Etape 3: transformer les données
+✓ C’est quoi sklearn ?
+• scikit-learn est une bibliothèque Python très utilisée en machine Learning.
+• Elle fournit plein d’outils pour :
+➢ préparer les données (nettoyage, transformation, normalisation)
+➢ créer des modèles (régression, classification, clustering, etc.)
+➢ entraîner ces modèles
+➢ évaluer leurs performances
+--- Page 35 ---
+Régression linéaire simple
+❑ Implémentation:
+✓ C’est quoi sklearn ?
+➔ sklearn permet de passer de données brutes à un modèle intelligent capable 
+de faire des prédictions.
+• Les grands modules de sklearn
+➢ Prétraitement (preprocessing):
+Exemple : StandardScaler, MinMaxScaler pour mettre les données à la même 
+échelle.
+Exemple : LabelEncoder ou OneHotEncoder pour transformer du texte en 
+nombres.
+--- Page 36 ---
+Régression linéaire simple
+❑ Implémentation:
+➢ Modèles supervisés (régression & classification)
+Régression : LinearRegression, Ridge, Lasso…
+Classification : LogisticRegression, KNeighborsClassifier, DecisionTreeClassifier, 
+RandomForestClassifier, SVC…
+➢ Modèles non supervisés (clustering & réduction de dimension)
+Clustering : KMeans, DBSCAN…
+Réduction : PCA (analyse en composantes principales).
+--- Page 37 ---
+Régression linéaire simple
+❑ Implémentation:
+➢ Séparation & validation des données
+train_test_split pour diviser les données en train et test.
+cross_val_score pour validation croisée.
+➢ Évaluation des modèles
+Métriques : accuracy_score, mean_squared_error, r2_score, precision_score, 
+recall_score, etc.
+--- Page 38 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Transformer les données : normaliser/standardiser les données.
+✓ Données numériques
+La standardisation transforme chaque variable (chaque colonne de ton jeu de 
+données) de façon à ce qu’elle ait : une moyenne (mean) = 0 et un écart-type 
+(standard deviation) = 1 ➔ Les données sont mises sur une même échelle.
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+x = scaler.fit_transform(x)
+--- Page 39 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Transformer les données : normaliser/standardiser les données.
+✓ Données catégoriques
+• Avant de normaliser, il faut convertir les colonnes catégorielles en 
+numériques.
+➢ Il existe plusieurs techniques :
+1. Encodage ordinal (Label Encoding)
+•Exemple : {"Rouge":0, "Bleu":1, "Vert":2}
+•Simple mais impose un ordre arbitraire qui n’a pas toujours de sens.
+2. Encodage one-hot (OneHotEncoder ou pd.get_dummies)
+•Chaque catégorie devient une nouvelle colonne binaire (0 ou 1).
+--- Page 40 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Transformer les données : normaliser/standardiser les données.
+✓ Données catégoriques
+for column in categorical_columns:
+dummies = pd.get_dummies(data[column], prefix=column)
+data = pd.concat([data, dummies], axis=1).drop(columns=[column])
+• La fonction pd.get_dummies() de Pandas permet de convertir des 
+variables catégorielles en un format pouvant être fourni aux 
+algorithmes d'apprentissage automatique pour de meilleures prédictions. 
+• Ces variables fictives sont des colonnes binaires (0 ou 1) indiquant la 
+présence ou l'absence d'une catégorie dans les données.
+--- Page 41 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Séparation les données train/test 
+❖ Modèle choisi
+❖ Entraînement (fit)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+lrm=LinearRegression()
+lrm.fit(x_train,y_train)
+--- Page 42 ---
+Régression linéaire simple
+❑ Implémentation:
+❖ Prédictions (predict)
+❖ Évaluation
+y_pred_lrm=lrm.predict(x_test)
+def  evaluate(y_test,y_pred):
+print("R²",r2_score(y_test,y_pred))
+print("MSE",mean_squared_error(y_test,y_pred))
+evaluate(y_test,y_pred_lrm)
+--- Page 43 ---
+Régression linéaire simple
+❑ Schéma
+Données Prétraitement Séparation train/test Modèle choisi
+Entraînement (fit) Prédictions (predict) Évaluation
+--- Page 44 ---
+Régression linéaire simple
+❑ Estimation des paramètres 𝛽0et 𝛽1:
+❖ Limites de la méthode des moindres:
+✓ Sensibilité aux valeurs extrêmes (outliers) :
+•Un seul point très éloigné peut déplacer fortement la droite.
+✓ Hypothèses nécessaires :
+•Relation linéaire entre X et Y .
+•Les erreurs ε sont indépendantes, de variance constante et suivent une 
+distribution normale.
+✓ Corrélation ≠ causalité :
+•Même si la droite est bien ajustée, cela ne prouve pas que XXX cause YYY .
+--- Page 45 ---
+Régression non linéaire
+• Un modèle non linéaire est un modèle où la relation entre les entrées et la 
+sortie n’est pas une droite.
+• Ça peut être une courbe (exponentielle, quadratique, logistique, sinus, etc.)
+• Le changement de 𝑦 par rapport à 𝑥 n’est pas constant.
+• La régression non linéaire ajuste un hyperplan pour minimiser l’erreur entre 
+les valeurs prédites et réelles.
+• Utilise plusieurs features pour prédire la target
+➢ Exemple :
+𝑦 = 𝑎 ⋅ 𝑥2 + 𝑏 ou   𝑦 = 𝑒𝑎𝑥
+𝑌 = 𝛽0 + 𝛽1 𝑋1 + 𝛽2𝑋2 + 𝜀
+--- Page 46 ---
+Régression non linéaire
+
+--- Page 47 ---
+Régression non linéaire
+➔ Non linéaire = courbes plus complexes (meilleures pour décrire la réalité, 
+mais plus difficiles à calculer et interpréter).
+
+--- Page 48 ---
+Régression Polynomiale
+• Régression polynomiale est un cas particulier de modèle non linéaire.
+• La régression polynomiale est une extension de la régression linéaire où on 
+ajoute des puissances de la variable 𝐱.
+• Au lieu de :
+𝑦 = 𝑎0 + 𝑎1𝑥
+• on a par exemple (polynôme de degré 2) :
+𝑦 = 𝑎0 + 𝑎1𝑥 + 𝑎2𝑥2
+• ou en général (polynôme de degré 𝑛) :
+𝑦 = 𝑎0 + 𝑎1𝑥 + 𝑎2𝑥2 + ⋯ + 𝑎𝑛𝑥𝑛
+--- Page 49 ---
+Régression Polynomiale
+✓ Pourquoi l’utiliser ?
+• Parce que les données réelles ne suivent pas toujours une droite.
+• La régression polynomiale permet donc d’adapter une courbe aux 
+données.
+Remarque:
+• Si on choisit un degré trop petit, la courbe ne suit pas bien les données (sous-
+apprentissage).
+• Si on choisit un degré trop grand, la courbe s’adapte trop aux données et 
+devient bizarre (sur-apprentissage).
+➔ La régression polynomiale est une régression linéaire "enrichie" avec des 
+puissances de 𝑥, ce qui permet de modéliser des relations non linéaires.
+--- Page 50 ---
+Régression Polynomiale
+❑ Implémentation:
+pol2=PolynomialFeatures(degree=2)
+x_train_pol2=pol2.fit_transform(x_train)
+x_test_pol2=pol2.transform(x_test)
+rp=LinearRegression()
+rp.fit(x_train_pol2,y_train)
+y_pred_rp=rp.predict(x_test_pol2)
+evaluate(y_test,y_pred_rp)
+--- Page 51 ---
+Régularisation
+✓ Qu’est-ce que la régularisation ?
+• En régression, parfois le modèle s’ajuste trop aux données d’entraînement, 
+surtout quand on a beaucoup de variables.
+• Cela donne de bons résultats sur les données d’entraînement mais mauvais 
+sur de nouvelles données → c’est le sur-apprentissage (overfitting).
+• La régularisation ajoute une pénalité sur les coefficients du modèle pour les 
+empêcher de devenir trop grands.
+--- Page 52 ---
+Régularisation:
+❑ Exemple :
+Imaginons que tu veux prédire le prix d’une maison avec 100 caractéristiques.
+• Ridge → réduit tous les coefficients pour ne pas trop s’adapter aux données
+• Lasso → ignore certaines caractéristiques inutiles
+• Elastic Net → fait un compromis, réduit et ignore certaines variables
+ 
+--- Page 53 ---
+Régularisation: Ridge (ou régression L2)
+• Pénalise la somme des carrés des coefficients.
+• Formule :
+Cou
+ˆ
+t = MSE + 𝜆 ෍
+𝑗=1
+𝑝
+𝛽𝑗2
+• où 𝜆e st le paramètre de régularisation :
+• 𝜆 = 0→ pas de régularisation
+• 𝜆 grand → les coefficients sont poussés vers 0 mais jamais exactement 0
+Utilité : 
+• Réduit les coefficients mais conserve toutes les variables.
+• Toutes les variables restent dans le modèle, mais elles “pèsent moins”.
+--- Page 54 ---
+Régularisation: Ridge (ou régression L2)
+❑ Implémentation
+from sklearn.linear_model import Ridge
+ridge=Ridge()
+ridge.fit(x_train,y_train)
+ypredridge=ridge.predict(x_test)
+evaluate(y_test,ypredridge)
+--- Page 55 ---
+Régularisation: Lasso (ou régression L1)
+• Pénalise la somme des valeurs absolues des coefficients.
+• Formule :
+Cou
+ˆ
+t = MSE + 𝜆 ෍
+𝑗=1
+𝑝
+∣ 𝛽𝑗 ∣
+Effet particulier :
+Certains coefficients deviennent exactement 0 → fait une sélection automatique 
+des variables.
+--- Page 56 ---
+Régularisation: Lasso (ou régression L1)
+❑ Implémentation
+from sklearn.linear_model import Lasso
+lasso=Lasso()
+lasso.fit(x_train,y_train)
+ypredlasso=lasso.predict(x_test)
+evaluate(y_test,ypredlasso)
+--- Page 57 ---
+Régularisation: Elastic Net
+• Combine Ridge + Lasso
+• Formule :
+Cou
+ˆ
+t = MSE + 𝜆1 ෍ ∣ 𝛽𝑗 ∣ +𝜆2 ෍ 𝛽𝑗2
+Avantage :
+• Permet de régulariser tout en pouvant supprimer certaines variables.
+• Très utile quand on a beaucoup de variables et des corrélations entre elles.
+• Tu mets un frein sur toutes les variables, mais tu peux aussi supprimer les 
+moins importantes.
+--- Page 58 ---
+Régularisation: Elastic Net
+❑ Implémentation
+from sklearn.linear_model import ElasticNet
+elasticnet=ElasticNet()
+elasticnet.fit(x_train,y_train)
+ypredlasso= elasticnet.predict(x_test)
+evaluate(y_test,ypredlasso)
+--- Page 59 ---
+Régularisation:
+❑ Différence entre L2, L1 et Elastic Net:
+ Méthode Réduit coefficients Supprime certaines variables Quand l’utiliser ?
+Ridge OUI NON Beaucoup de variables corrélées
+Lasso OUI OUI Sélection de variables
+Elastic Net OUI OUI Mélange des deux cas

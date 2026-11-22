@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+mediapipe
+opencv-python
+joblib
+nbformat
+nbconvert
+notebook
+ipykernel

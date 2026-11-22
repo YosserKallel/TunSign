@@ -1,0 +1,711 @@
+--- Page 1 ---
+Machine Learning 
+Apprentissage Automatique
+--- Page 2 ---
+Apprentissage supervisé: 
+Classification
+Arfaoui Ahlem
+--- Page 3 ---
+Plan
+• Régression logistique
+• Arbres de décision
+• Forêt aléatoire
+• Machines à vecteurs de support (SVM)
+• k-plus proches voisins (k-NN)
+--- Page 4 ---
+Introduction
+❑ L’apprentissage automatique: est une branche de l’intelligence artificielle qui 
+permet à un système d’apprendre à partir de données et d’améliorer ses 
+performances sans programmation explicite.
+La machine doit
+récupérer les 
+données
+comme un Input 
+--- Page 5 ---
+Processus d’apprentissage
+Définir un problème 
+de ML et proposer 
+une solution
+Construite l’ensemble 
+de données
+Transformer les 
+données
+Etape 1 Etape 2
+Apprentissage Visualiser les Résultats
+Etape 3Etape 4
+--- Page 6 ---
+Apprentissage supervisé 
+• L'apprentissage supervisé est une forme de machine Learning qui utilise des 
+jeux de données étiquetés pour entraîner des algorithmes.
+• Avec l'apprentissage supervisé, les jeux de données étiquetés permettent à 
+l'algorithme de déterminer les relations entre les informations entrantes et 
+sortantes.
+• Les jeux de données étiquetés servent d'exemples à l'algorithme pour 
+apprendre, comme un étudiant dans une salle de classe structurée.
+• L'algorithme prend ces données pour apprendre les relations, cet apprentissage 
+conduit à un modèle mathématique de prédiction.
+--- Page 7 ---
+Apprentissage supervisé 
+• Le processus d'entraînement est itératif et se répète pour affiner l'algorithme 
+jusqu'à ce que le modèle atteigne un niveau de précision souhaité.
+• Les algorithmes d'apprentissage supervisé appartiennent généralement à l'une 
+des deux catégories suivantes : Classification et Régression
+
+--- Page 8 ---
+Apprentissage supervisé 
+
+--- Page 9 ---
+Apprentissage supervisé 
+ 
+❑ Objectif:
+• Prendre des décisions 
+• Faire une Classification
+Données Méthode ML Intelligence
+--- Page 10 ---
+Apprentissage supervisé 
+ ❑ Données:
+Target y x1 x2 x3
+Prix Surface Qualité Adresse postale
+313.000 90 3 95000
+720.000 110 5 93000
+Vecteur Target                         Matrice Feature
+ 𝑦 =
+𝑦1
+𝑦2..
+𝑦𝑚
+                       𝑋 =
+𝑥11 ⋯ 𝑥𝑛1
+⋮ ⋱ ⋮
+𝑥1𝑚 ⋯ 𝑥𝑛𝑚
+(𝑚 × 1)                                         (𝑚 × 𝑛)
+--- Page 11 ---
+Apprentissage supervisé 
+ ❑ Modèle:
+• Un modèle est une représentation simplifiée de la réalité, que l’on peut 
+utiliser pour prédire ce qui se passerait dans certaines conditions
+• Exemple du modèle :Y=f(x)=ax+b
+• paramètre du modèle: a,b
+
+--- Page 12 ---
+Apprentissage supervisé 
+ ❑ Fonction cout:
+Une fonction de coût (aussi appelée loss function ou objective function) est une 
+formule mathématique qui mesure l’écart entre les prédictions du modèle 
+et les valeurs réelles.
+➔L’objectif  de l’apprentissage est de minimiser cette fonction afin 
+d’améliorer la précision du modèle.
+✓ Définition: Une fonction de coût est :
+𝐽 𝜃 = 1𝑚 ෍
+𝑖=1
+𝑚
+𝐿 (𝑦 𝑖 , ො𝑦 𝑖 )
+--- Page 13 ---
+Apprentissage supervisé 
+ ❑ Fonction cout:
+Avec 
+▪ 𝒎 : nombre d’exemples d’apprentissage
+▪ 𝒚 𝒊 : vraie valeur pour l’exemple iii
+▪ ෝ𝒚 𝒊 : prédiction du modèle
+▪ 𝐿: fonction de perte (mesure erreur pour un exemple)
+▪ 𝜽 : paramètres du modèle
+➔ Plus la fonction de coût est faible → meilleures sont les prédictions.
+--- Page 14 ---
+Apprentissage supervisé 
+ ❑ Algorithme de minimisation:
+• C’est une méthode d’optimisation qui ajuste les paramètres du 
+modèle (θ) afin de réduire la fonction de coût 𝑱 𝜽 .
+➔ L’objectif est de trouver :
+𝜃∗ = 𝑎𝑟𝑔𝑚𝑖𝑛 𝐽 𝜃
+✓ Descente de gradient (Gradient Descent) 
+Principe : on déplace les paramètres dans la direction opposée au gradient 
+(pente de la fonction de coût).
+--- Page 15 ---
+Classification 
+❖ Qu’est-ce que la classification en Machine Learning ?
+• La classification est une technique d’apprentissage supervisé dont le but est 
+de prédire une catégorie (ou une étiquette) à partir de données.
+➔ on apprend à une machine à reconnaître à quelle classe appartient un 
+élément.
+❖ Types de classification:
+• Binaire : Deux classes ➔ Exemple: Spam / Non spam
+• Multiclasse: Plusieurs classes ➔ Exemple: Chat / Chien / Lapin
+• Multilabel: Un même élément peut avoir plusieurs étiquettes➔ Exemple: 
+Film → [Comédie, Romance]
+--- Page 16 ---
+Apprentissage supervisé 
+ 
+Données Classification Intelligence
+Régression 
+logistique
+Arbre de 
+décision
+Random 
+Forest
+SVM k-NN
+--- Page 17 ---
+Régression logistique simple (binaire)
+• Malgré son nom, la régression logistique n’est pas utilisée pour prédire des 
+nombres, mais pour classer des données.
+➔ Elle permet de prédire une probabilité qu’un élément appartienne à une 
+classe (Exemple : Oui / Non, 0 / 1, Spam / Non spam).
+❑ Modèle mathématique
+𝑌 = 𝛽0 + 𝛽1 𝑋1 + 𝛽2𝑋2 + ⋯ + 𝛽𝑛𝑋𝑛
+On appelle la fonction score. L’idée est de trouver des coefficients 𝛽0 ,
+𝛽1, … , 𝛽𝑛 de sorte que :
+• Y> 0 ➔ quand la classe (étiquette) vaut 1
+• Y<0➔ quand la classe (étiquette) vaut 0
+--- Page 18 ---
+Régression logistique simple (binaire)
+❖ Sigmoid Function pour calculer la probabilité d’une classe
+• La fonction score qu’on a obtenue intègre les différentes variables prédictives 
+(les xi). A cette fonction, on appliquera la fonction sigmoid (Sigmoid Function). 
+Cette fonction produit des valeurs comprises entre 0 et 1
+• La fonction Logistique (autre nom pour la fonction Sigmoid), est définie comme 
+suit
+• sigmoide(z) =
+𝟏
+𝟏+𝒆𝒛 =
+𝒆𝒛
+𝟏+𝒆𝒛
+
+--- Page 19 ---
+Régression logistique simple (binaire)
+❖ Exemple :
+Si le modèle prédit 0.8 → 80 % de chances de "réussite". ➔ valeur est 1
+Si le modèle prédit 0.2 → 20 % de chances. ➔ valeur est 0 
+• f ne peut pas être une fonction linéaire car Y ne prend que deux valeurs.
+--- Page 20 ---
+Régression logistique simple (binaire)
+❖ Étapes de fonctionnement:
+• Entrée : des données d’entraînement avec leurs étiquettes
+(par exemple, heures d’étude → réussite ou échec)
+• Apprentissage : le modèle apprend les coefficients (comme une droite)
+• Prédiction : pour une nouvelle donnée, il calcule la probabilité d’appartenir à la 
+classe 1 (ex. : réussite)
+• Décision :
+Si la probabilité > 0.5 → classe 1 (réussite)
+Sinon → classe 0 (échec)
+--- Page 21 ---
+Régression logistique simple (binaire)
+❖ Avantages de la régression logistique
+• Facile à comprendre et à implémenter
+• Rapide à entraîner
+• Donne une probabilité interprétable
+• Fonctionne bien pour les problèmes binaires
+❖ Limites:
+• Ne marche pas bien si la frontière entre les classes n’est pas linéaire.
+• Moins performante pour les données très complexes.
+--- Page 22 ---
+Régression logistique multi classes
+Exemple :
+• On veut prédire la météo du jour selon la température et l’humidité.
+• Les classes possibles sont :
+➢
+  Ensoleillé
+➢
+  Nuageux
+➢
+  Pluvieux
+➔ Donc 3 classes à prédire au lieu de 2.
+❖ L’idée de base:
+• Au lieu d’avoir une seule équation qui donne une probabilité entre 0 
+et 1,on a une équation par classe.
+➔ Chaque classe obtient une probabilité, et celle qui a la plus grande 
+probabilité est choisie comme prédiction finale.
+--- Page 23 ---
+Régression logistique multi classes
+❖ Comment ça marche  
+❖ Méthode 1: softmax(Multinomial Logistic Regression )
+Principe :
+• On entraîne un seul modèle pour toutes les classes en même 
+temps.
+• Il apprend à produire des probabilités qui se normalisent entre elles.
+Pour chaque classe 𝑘:
+𝑃 𝑦 = 𝑘 = 𝑒 𝑧𝑘
+σ𝑗=1𝐾 𝑒𝑧𝑗
+→ Les probabilités s’additionnent à 1 
+→ On considère toutes les classes simultanément.
+--- Page 24 ---
+Régression logistique multi classes
+❖ Méthode 1: softmax)(Multinomial Logistic Regression )
+Exemple : on a :
+• Température = 25°C
+• Humidité = 40%
+Le modèle va analyser ces valeurs et calculer trois scores (un pour chaque 
+météo)
+Classe Score brut (z) Probabilité après       (Softmax)
+ Ensoleillé 3.2 0.75
+ Nuageux 1.5 0.20
+ Pluvieux 0.3 0.05
+--- Page 25 ---
+Régression logistique multi classes
+❖ Interprétation
+• Le modèle dit :
+➢ 75 % de chances d’être ensoleillé 
+➢ 20 % de chances d’être nuageux 
+➢ 5 % de chances d’être pluvieux 
+➔ Résultat : Ensoleillé 
+  (car 0.75 est la probabilité la plus élevée).
+• Pour chaque classe, le modèle apprend une petite équation linéaire :
+𝒛 = 𝒂 × tempe
+ˊ
+rature + 𝒃 × humidite
+ˊ
++ 𝒄
+• Puis, la fonction Softmax transforme les trois valeurs (z) en probabilités.
+--- Page 26 ---
+Régression logistique multi classes
+❖ Méthode 2: One-vs-Rest (OvR).
+• L’idée est de transformer le problème multiclasse en plusieurs problèmes 
+binaires.
+• on entraîne 3 modèles logistiques séparés :
+Modèle Ce qu’il apprend
+Modèle 1
+  vs (
+  ou 
+ )
+Modèle 2
+  vs (
+  ou 
+ )
+Modèle 3
+  vs (
+  ou 
+ )
+• Chaque modèle essaie de distinguer une classe particulière des autres.
+--- Page 27 ---
+Régression logistique multi classes
+❖ Méthode 2: One-vs-Rest (OvR).
+➢ Résultat:
+Modèle Question posée Probabilité calculée
+Modèle 1 Est-ce 
+  ou pas ? 0.8
+Modèle 2 Est-ce 
+  ou pas ? 0.3
+Modèle 3 Est-ce 
+  ou pas ? 0.1
+Décision :
+On garde la classe qui a la probabilité la plus haute.
+•
+  = 0.8
+•
+  = 0.3
+•
+  = 0.1
+➔ Le modèle prédit 
+  Ensoleillé 
+
+--- Page 28 ---
+Régression logistique multi classes
+❖ Méthode 2: One-vs-Rest (OvR).
+
+--- Page 29 ---
+Régression logistique multi classes
+❖ Différence entre les deux méthodes.
+Aspect One-vs-Rest (OvR) Softmax (Multinomial)
+Nombre de modèles Un par classe Un seul
+Fonction Sigmoïde Softmax
+Probabilités Indépendantes Liées (somme = 1)
+Vitesse 
+d’entraînement Rapide Plus coûteuse
+Utilisation typique Petites données, peu de classes Données complexes, classes corrélées
+--- Page 30 ---
+Arbres de décision (Decision Trees)
+
+--- Page 31 ---
+Arbres de décision (Decision Trees)
+• Un arbre de décision est un outil visuel et intuitif très utilisé en Machine Learning 
+pour prendre des décisions ou prédire un résultat à partir de différentes 
+caractéristiques disponibles dans les données.
+• Un arbre de décision est un modèle qui ressemble à un arbre où :
+➢ chaque noeud interne pose une question sur une caractéristique (par ex. 
+“Fumeur ?”),
+➢ chaque branche correspond à une réponse possible (oui/non ou un 
+intervalle),
+➢ chaque feuille donne une prédiction (classe ou valeur continue).
+➔ C’est comme poser une série de questions oui/non pour arriver à une décision.
+--- Page 32 ---
+Arbres de décision (Decision Trees)
+• Dans le contexte de l'apprentissage automatique, l'arbre de décision sert à résoudre 
+deux types de problèmes principaux :
+➢ La classification (Exemple : "Ce client va-t-il acheter ou non ?")
+➢ La régression (Exemple : "Quel sera le chiffre de vente la semaine 
+prochaine ?")
+❖ Structure d’un arbre de décision
+➢ Nœud racine : C’est le point de départ, où l’on pose la première question sur 
+les données.
+➢ Nœuds de décision : À chaque étape, une question est posée sur une 
+caractéristique des données (Exemple, "La température est-elle supérieure à 
+20°C ?")..
+--- Page 33 ---
+Arbres de décision (Decision Trees)
+➢ Branches : Chaque réponse possible à la question mène à une nouvelle 
+branche de l’arbre.
+➢ Feuilles : Ce sont les points d’arrivée, où l’on donne la prédiction finale 
+(Exemple, "Oui, il faut prendre un parapluie" ou "Non, il ne faut pas en 
+prendre").
+❖ Applications concrètes
+➢ Service client : Les arbres de décision peuvent automatiser la résolution de 
+problèmes simples dans les chatbots, en guidant le client vers la bonne solution 
+étape par étape.
+➢ Finance, santé, e-commerce : Ils sont utilisés pour prédire des risques, 
+diagnostiquer des maladies, ou recommander des produits.
+--- Page 34 ---
+Arbres de décision (Decision Trees)
+❖ Comment on construit un arbre ? 
+1. Au noeud courant, pour chaque caractéristique, tester toutes les divisions 
+possibles (pour continue : seuils; pour catégorique : partitions).
+2. Calculer la qualité du split (avec entropie/gain d’information, ou indice de Gini).
+3. Choisir le split qui améliore le plus la pureté (Exemple: maximise le gain 
+d’information).
+4. Répéter récursivement sur chaque sous-ensemble jusqu’à un critère d’arrêt 
+(Exemple : profondeur maximale, nombre minimum d’exemples, impureté nulle).
+5. (Optionnel) Élagage pour éviter le surapprentissage.
+--- Page 35 ---
+Arbres de décision (Decision Trees)
+❖ Les principales mesures de pureté
+➢ Entropie 
+• L’entropie mesure le “désordre” d’un ensemble.
+• Formule :
+où :
+• 𝑝𝑖 =proportion d’exemples de la classe 𝑖,
+• 𝑘= nombre de classes (ex : 2 si Oui/Non).
+➔ Entropie :
+• = 0 quand tout le nœud contient une seule classe (très pur),
+• = 1 quand les classes sont parfaitement mélangées (désordre maximal).
+
+--- Page 36 ---
+Arbres de décision (Decision Trees)
+❖ Les principales mesures de pureté
+➢ Gain d’information
+• C’est la réduction d’entropie obtenue après une division.
+où :
+• 𝑆= ensemble actuel (avant division),
+• 𝐴= attribut testé,
+• 𝑆𝑣 =sous-ensemble où l’attribut A prend la valeur 𝑣.
+➔ On choisit le split qui maximise le gain d’information.
+
+--- Page 37 ---
+Arbres de décision (Decision Trees)
+❖ Les principales mesures de pureté
+➢ Indice de Gini (utilisé par CART)
+Formule :
+.
+▪ Gini = 0 → pureté parfaite (un seul type de classe)
+▪ Gini proche de 0.5 → mélange important
+➔ L’arbre CART choisit le split qui minimise Gini (ou maximise la réduction de 
+Gini).
+
+--- Page 38 ---
+Arbres de décision (Decision Trees)
+❖ L’élagage : 
+Élaguer, c’est tailler l’arbre — comme un jardinier 
+→ On supprime ou limite certaines branches pour garder seulement la structure 
+essentielle.
+➔ L’idée est de rendre l’arbre plus simple, plus “général” et plus robuste face à de 
+nouvelles données.
+--- Page 39 ---
+Arbres de décision (Decision Trees)
+Deux types d’élagage:
+➢ Élagage précoce (pre-pruning)
+• On empêche l’arbre de trop grandir dès sa construction.
+➔ On fixe des conditions d’arrêt avant de continuer à diviser :
+• Profondeur maximale (max_depth)
+• Nombre minimum d’échantillons dans un nœud (min_samples_split)
+• Nombre minimum d’échantillons dans une feuille (min_samples_leaf)
+• Gain d’information minimum requis pour un split (min_impurity_decrease)
+➔Dès qu’une condition est atteinte → on arrête de diviser, on crée une feuille.
+❖ Avantage : rapide et simple.
+❖ Inconvénient : on peut stopper trop tôt et rater des séparations utiles.
+--- Page 40 ---
+Arbres de décision (Decision Trees)
+➢ Élagage postérieur (post-pruning)
+• On construit d’abord l’arbre complet, puis on supprime les branches inutiles 
+après coup.
+• Construire l’arbre complet (très profond).
+• Calculer la performance sur un ensemble de validation.
+• Supprimer progressivement des branches dont la suppression n’abîme pas 
+trop les performances sur validation.
+• Garder la version la plus simple possible avec une bonne performance.
+➔On cherche le meilleur compromis entre :
+• arbre trop simple → sous-apprentissage (underfitting)
+• arbre trop complexe → surapprentissage (overfitting)
+--- Page 41 ---
+Arbres de décision (Decision Trees)
+Type d’élagage Quand ? Principe Objectif
+Précoce (pre-
+pruning)
+Pendant la 
+construction
+Arrêter la 
+croissance si les 
+conditions sont 
+remplies
+Empêcher trop de 
+détails inutiles
+Postérieur (post-
+pruning)
+Après la 
+construction
+Supprimer les 
+branches peu 
+utiles
+Simplifier le 
+modèle sans 
+perdre trop de 
+précision
+--- Page 42 ---
+Arbres de décision (Decision Trees)
+❖ Avantages et inconvénients
+➢ Avantages :
+✓ Interprétable (on peut lire les règles).
+✓ Peu de préparation des données (pas besoin de normalisation).
+✓ Gère variables numériques et catégoriques.
+✓ Rapide à prédire.
+➢ Inconvénients :
+✓ Sensible au surapprentissage si non régularisé.
+✓ Instable : petites variations des données → arbre différent.
+✓ Ne capture pas bien des relations linéaires complexes (les forêts 
+aléatoires ou gradient boosting sont souvent meilleures).
+--- Page 43 ---
+Les forêts aléatoires (Random Forset)
+
+--- Page 44 ---
+Les forêts aléatoires (Random Forset)
+❖ Qu'est-ce que l'algorithme Random Forest ?
+• Un Random Forest (forêt aléatoire) est un ensemble d’arbres de 
+décision.
+➔ Il ne construit pas un seul arbre, mais plusieurs arbres de décision, puis 
+combine leurs résultats pour prendre une meilleure décision.
+• C’est une méthode d’ensemble (ensemble method), car elle combine 
+plusieurs modèles pour améliorer la précision et réduire les erreurs.
+--- Page 45 ---
+Les forêts aléatoires (Random Forset)
+❖ Pourquoi plusieurs arbres ?
+Un seul arbre peut :
+• trop s’adapter aux données (→ surapprentissage / overfitting),
+• donner des résultats instables si les données changent un peu.
+➔   L’idée du Random Forest :
+• « Si un arbre se trompe, les autres peuvent corriger son erreur. »
+• C’est comme demander l’avis à plusieurs experts au lieu d’un seul.
+--- Page 46 ---
+Les forêts aléatoires (Random Forset)
+❖ Comment ça fonctionne 
+On suppose que nous avons un jeu de données avec 1000 exemples.
+➢ Étape 1 : Tirage aléatoire de données 
+• Le modèle crée, disons, 100 arbres.
+• Pour chaque arbre, il choisit au hasard une sous-partie des données 
+d’entraînement (on appelle ça le bootstrap sampling).
+➢ Étape 2 : Tirage aléatoire de caractéristiques
+• À chaque noeud de l’arbre, au lieu de tester toutes les caractéristiques, il en 
+choisit quelques-unes au hasard (par exemple 3 sur 10).
+→ Cela rend les arbres différents les uns des autres.
+--- Page 47 ---
+Les forêts aléatoires (Random Forset)
+➢ Étape 3 : Construction des arbres
+• Chaque arbre est construit indépendamment, comme un arbre de décision 
+normal.
+➢ Étape 4 : Prédiction finale
+Pour une nouvelle donnée :
+• chaque arbre donne sa prédiction (Exemple, "achète" ou "n’achète pas").
+• le Random Forest fait un vote majoritaire :
+• si la majorité dit “achète” → prédiction = “achète”.
+• pour une régression, on prend la moyenne des prédictions des arbres.
+--- Page 48 ---
+Les forêts aléatoires (Random Forset)
+❖ Avantages du Random Forest
+• Très précis dans beaucoup de cas
+• Résiste au surapprentissage
+• Fonctionne bien même avec peu de réglages
+• Donne une importance des caractéristiques (feature importance)
+❖ Inconvénients
+• Moins interprétable qu’un seul arbre (on ne peut pas tout visualiser 
+facilement)
+• Plus lent à entraîner si beaucoup d’arbres
+• Peut consommer plus de mémoire
+--- Page 49 ---
+SVM
+❖ Qu’est-ce qu’un SVM ?
+• Un SVM est un algorithme d’apprentissage supervisé utilisé principalement 
+pour la classification (et aussi la régression).
+• Idée clé : trouver une frontière de décision (une droite en 2D, un hyperplan 
+en dimension supérieure) qui sépare au mieux les classes tout en maximisant la 
+marge — la distance entre l’hyperplan et les points d’entraînement les plus 
+proches de chaque classe.
+--- Page 50 ---
+SVM
+Exemple:
+Choisir un seuil qui sépare les classes ➔ Frontière de décision
+
+--- Page 51 ---
+SVM
+Exemple:
+• Améliorer le choix du seuil
+➢ Prendre comme seuil le point central qui représente le milieu de la distance 
+qui sépare les deux observations extrémales (sur les bordures des classes)➔ 
+Marge Maximale
+
+--- Page 52 ---
+SVM
+Exemple:
+• Données d’apprentissage avec certains bruits.
+
+--- Page 53 ---
+SVM
+Exemple:
+• Solution
+• En calculant la frontière de séparation entre les classes, on doit autoriser que 
+quelques erreurs de classification se produisent.
+
+--- Page 54 ---
+SVM (Support Vector Machine)
+
+--- Page 55 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+• On cherche la fonction qui permet de prédire la classe d’appartenance de 
+l’individu 𝑜𝑖
+•  Classification binaire ➔ SVM linéaire
+•  On cherche un hyperplan ෡𝐻 dont l’équation est donnée par መ𝑓tel que:
+➢  Si መ𝑓 (𝑜𝑖)>0 ➔ 𝑜𝑖 est affecté à la classe d’étiquette 1
+➢ Si መ𝑓 (𝑜𝑖 )<0 ➔ 𝑜𝑖 est affecté à la classe d’étiquette -1
+• Par conséquent
+Ƹ𝑒 =sign( መ𝑓 (𝑜𝑖))
+➔ Trouver un hyperplan dans un espace multidimensionnel (ligne en 2D) qui 
+sépare correctement les données en 2 classes
+➔ L’hyperplan (doit se trouver "le plus loin possible" de tous les individus.
+--- Page 56 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+• Le but est de maximiser la marge.
+• Il existe un unique hyperplan optimal, défini comme l'hyperplan qui maximise la 
+marge.
+መ𝑓 𝑜𝑖 = 0
+• Pour faire ceci, on a besoin d’estimer les paramètre 𝑤𝑖et 𝑏 tel que
+መ𝑓 (𝑜) = ෍
+𝑖=1
+𝑛
+𝑤𝑖  𝑜𝑖 + b = 0
+➔ On a besoin d’un algorithme d’optimisation
+--- Page 57 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+Un autre Exemple:
+Un médicament n’est pas efficace dans le cas d’un sous-dosage ou un 
+surdosage
+➢ Quelque soit le seuil choisit, on aura beaucoup d’erreur de classification.
+➢ Les données sont non linéairement séparables.
+
+--- Page 58 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+Un autre Exemple:
+❑ Transformation des données : représentation dans une dimension plus grande
+• La nouvelle représentation de données permet de trouver une frontière de 
+séparation
+
+--- Page 59 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+• Les données sont initialement décrites dans un espace ℜ𝑑
+• On applique sur les données une certaine fonction 𝜙 pour les ramener a un 
+espace de plus grande dimension 𝐹.
+•  On a donc 𝐶𝑎𝑟𝑑(𝐹) > 𝑑
+𝜙: ℜ𝑑 → 𝐹
+𝑥 → 𝜙(𝑥)
+– Dans ce nouvel espace ➔ les données sont linéairement séparables
+• Le kernel trick évite de calculer 𝜙 𝑥 explicitement en utilisant une fonction 
+noyau. 
+--- Page 60 ---
+SVM (Support Vector Machine): Binaire
+❖ SVM binaire (Formellement)
+Exemple de fonction noyau
+
+--- Page 61 ---
+SVM (Support Vector Machine): Multi class
+• SVM est naturellement binaire. Pour multi classes on utilise :
+▪ one-vs-rest (un classifieur par classe) — commun.
+▪ one-vs-one (un classifieur pour chaque paire de classes)
+❖ L’approche « One vs One »
+• Pour k classes utiliser𝑐𝑘2=𝑘(𝑘−1)2  fois le SVM.
+• A chaque itération, apprendre à distinguer entre un couple de classes (Ci,Cj) par 
+un classiffieur différent
+•  Pour classer une nouvelle observation o, utiliser la technique de "vote 
+majoritaire".
+➢  Chaque classifieur vote pour une classe c s’il a classé o comme une 
+observation de c.
+➢ On attribut a o la classe qui a cumulé le plus de votes
+--- Page 62 ---
+SVM (Support Vector Machine): Multi class
+❖ l’approche "One vs All"
+• Pour classer une nouvelle observation o, utiliser la technique de "le gagnant 
+emporte tout".
+
+--- Page 63 ---
+SVM (Support Vector Machine)
+❖ Avantages :
+• Performant en dimension modérée/élevée, travaille bien quand séparation est 
+«claire» en espace transformé.
+• Utilise un nombre limité de points (support vectors) : modèle souvent 
+parcimonieux.
+• Méthode bien fondée mathématiquement (problème convexe → optimum 
+global).
+❖ Inconvénients :
+• Coût élevé pour très grands jeux de données (complexité d’entraînement 
+𝑂 𝑛2 à 𝑂 𝑛3 selon implémentation).
+• Sensible au choix du noyau et des hyperparamètres (C, 𝛾pour RBF).
+• Nativement binaire — multiclasses géré par stratégie (voir dessous).
+• Pas d’interprétabilité directe comme certains arbres.
+--- Page 64 ---
+KNN: K-Nearest Neighbors.
+• KNN est un algorithme très simple :
+• Pour prédire une nouvelle donnée, on regarde les K points les plus proches 
+dans le dataset, puis on vote (ou fait une moyenne).
+• Si c’est un problème de classification ➔ on prend la classe majoritaire 
+parmi les voisins.
+• Si c’est un problème de régression → on prend la moyenne des valeurs des 
+voisins.
+➔KNN = « Dis-moi qui sont tes voisins, je te dirai qui tu es. »
+--- Page 65 ---
+KNN: K-Nearest Neighbors.
+❖ Les Etapes:
+• Sélectionner le nombre K de voisins.
+▪ Choisir K
+➢ Si K est trop petit ➔ modèle bruité / surapprentissage
+➢ Si K est trop grand ➔ modèle trop lissé / sous-apprentissage
+• Calculer la distance.
+• Prendre les K voisins les plus proches selon la distance calculée.
+• Parmi ces K voisins, compter le nombre de points appartenant à chaque 
+catégorie.
+• Attribuer le nouveau point à la catégorie la plus présente parmi ces K voisins.
+
+--- Page 66 ---
+KNN: K-Nearest Neighbors.
+
+--- Page 67 ---
+KNN: K-Nearest Neighbors.
+❖ Validation croisée
+➢ Objectif:
+• La validation croisée sert à évaluer un modèle de façon fiable.
+• Elle permet de mieux mesurer ses performances et d’éviter le 
+surapprentissage (overfitting).
+➢ Idée
+• Au lieu d’entraîner et tester une seule fois, on répète plusieurs apprentissages 
+sur différentes parties du dataset, puis on moyenne les résultats.
+• On utilise tout le dataset pour apprendre et tester, mais jamais sur les mêmes 
+données en même temps.
+--- Page 68 ---
+KNN: K-Nearest Neighbors.
+❖ Validation croisée
+Validation croisée K-Fold (la plus utilisée)
+1. On divise le dataset en K morceaux (appelés folds) → par exemple K = 5
+2. On fait K entraînements :
+• À chaque fois :
+➢ 1 fold sert de test
+➢  les K-1 folds restants servent d’entraînement
+3. On obtient K scores (accuracy par ex.)
+4. On fait la moyenne des K scores
+--- Page 69 ---
+KNN: K-Nearest Neighbors.
+❖ Validation croisée
+

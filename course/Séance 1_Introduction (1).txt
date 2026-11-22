@@ -1,0 +1,595 @@
+--- Page 1 ---
+Machine Learning
+Apprentissage automatique
+--- Page 2 ---
+Introduction
+Arfaoui Ahlem
+--- Page 3 ---
+Plan
+1. Introduction générale
+2. Historique et contexte
+3. Relation entre IA, ML et DL 
+4. Machine Learning
+5. Typologie de l'apprentissage
+6. Cycle de vie d'un projet ML 
+--- Page 4 ---
+Introduction générale
+❑ Big Data
+❑ Données Massive
+❑ IOT
+--- Page 5 ---
+Introduction générale
+• Les 10 réseaux sociaux les plus utilisés 
+dans le monde en 2025
+➢Facebook: 3,07 milliards d’utilisateurs,
+➢Instagram : 3 milliards,
+➢WhatsApp: 3 milliards,
+➢YouTube: 2,58 milliards,
+➢TikTok: 1,99 milliard,
+➢WeChat: 1,41 milliard,
+➢Telegram: 1 milliard,
+➢Messenger: 942 millions.
+➢Snapchat: 932 millions,
+➢Reddit : 765 millions.
+
+--- Page 6 ---
+Introduction générale
+❑Données vs Information vs Connaissance?
+❑ Données:
+• Définition : Ce sont des faits bruts, non organisés, sans interprétation.
+• Caractéristiques : 
+✓ Valeurs isolées (chiffres, textes, symboles, mesures).
+✓ N’ont pas encore de sens par elles-mêmes.
+❑  Information:
+• Définition : Les données une fois traitées, organisées ou mises en 
+contexte deviennent de l’information.
+• Caractéristiques : 
+✓ Apporte du sens.
+✓ Répond souvent à une question : qui ? quoi ? où ? quand ?
+--- Page 7 ---
+Introduction générale
+❑Données vs Information vs Connaissance?
+❑ Connaissance:
+• Définition : C’est l’interprétation et l’utilisation de l’information, combinée à 
+l’expérience, l’analyse ou le raisonnement.
+• Caractéristiques : 
+✓ Sert à prendre des décisions.
+✓ Répond à la question comment ? pourquoi ?.
+➢ Exemple: 
+Données: Température enregistrée : 32, 30, 29.
+Information: La température moyenne aujourd’hui est de 30°C.
+Connaissance: Une température de 30°C signifie qu’il faut prévoir de boire plus 
+d’eau et éviter les activités physiques intenses en plein soleil.
+--- Page 8 ---
+Historique et contexte (1/5)
+Trois grands mouvements se dégagent :
+➢ IA symbolique : des règles écrites par des 
+experts (1950s-1980s)
+➢ Apprentissage statistique : des modèles 
+qui apprennent de données (1990s-2010s)
+➢ Deep Learning & IA générative : des 
+réseaux de neurones profonds à très grande 
+échelle (2012-aujourd'hui)
+--- Page 9 ---
+Historique et contexte (2/5)
+❑ Premier essor : l'IA symbolique (1956 - 1987)
+Une IA fondée sur des règles
+• Durant cette période, l'IA repose sur des règles logiques écrites explicitement par 
+des experts humains : les « systèmes experts ». Ils codifient un savoir spécialisé 
+sous forme de règles Si...Alors.
+❖ Logique d'un système expert:
+1.Base de connaissances: 
+Des milliers de règles 
+Si...Alors écrites par des 
+spécialistes du domaine.
+2. Moteur d'inference: 
+Applique les règles pas à 
+pas pour raisonner sur un 
+cas précis.
+3. Conclusion experte:
+Un diagnostic ou une
+recommandation, mais rien 
+appris automatiquement
+--- Page 10 ---
+Historique et contexte (3/5)
+❑ La renaissance statistique (1993 - 2011)
+Le Machine Learning s'impose : apprendre des données plutôt qu'écrire des 
+règles.
+Explosion des données
+L'essor d'Internet (années
+90-2000) génère des 
+volumes de données sans 
+précédent à exploiter
+Nouveaux algorithms:
+SVM, forêts aléatoires, 
+boosting : des méthodes
+statistiques robustes et 
+performantes émergent.
+Calcul plus accessible:
+La loi de Moore continue de 
+faire baisser le coût du calcul, 
+rendant l'entraînement de 
+modèles plus praticable.
+➔ On passe d'une IA qui suit des règles écrites par l'humain à une IA qui découvre
+elle-même des motifs statistiques dans les données.
+--- Page 11 ---
+Historique et contexte (4/5)
+❑ La révolution du Deep Learning (2012 - 2020)
+Deep Learning (2012 - 2020)
+2012
+AlexNet & ImageNet
+Un réseau de neurones
+profond entraîné sur GPU 
+réduit spectaculairement le 
+taux d'erreur en
+reconnaissance d'images.
+2016
+AlphaGo bat un champion
+DeepMind combine 
+apprentissage profond et 
+apprentissage par 
+renforcement pour battre le 
+champion du monde de Go.
+2018+
+Les modèles de langage
+Transformers (2017), 
+BERT, GPT : des modèles 
+massifs entraînés sur 
+d'énormes corpus de texte.
+2022
+L'IA générative grand public
+ChatGPT rend l'IA 
+générative accessible à 
+tous, déclenchant une 
+adoption massive et 
+rapide.
+➔ Facteurs déclencheurs communs : données massives (big data), calcul GPU, et 
+algorithmes de deep learning matures.
+--- Page 12 ---
+Historique et contexte (5/5)
+❑ Où en sommes-nous aujourd'hui ?
+Le contexte qui explique l'omniprésence actuelle du Machine Learning
+Données
+Volumes exponentiels générés 
+par le web, les capteurs et les 
+objets connectés
+Calcul
+GPU, cloud computing et 
+puces spécialisées (TPU) à 
+coût toujours plus faible
+Outils ouverts
+scikit-learn, TensorFlow, 
+PyTorch : des bibliothèques 
+matures et accessibles
+Adoption large
+Le ML s'intègre désormais 
+dans la santé, la finance, 
+l'industrie et le grand public
+➔ L'IA n'a pas connu une progression continue, mais une succession de vagues d'enthousiasme et 
+de désillusion. Ce qui est nouveau aujourd'hui, c'est la conjonction durable des données, du calcul 
+et des outils qui rend le Machine Learning à la fois puissant et largement accessible.
+--- Page 13 ---
+Relation entre IA, ML et DL
+❑ Intelligence artificielle vs Machine Learning vs Deep-Learning
+
+--- Page 14 ---
+Relation entre IA, ML et DL 
+❑ Intelligence Artificielle 
+❑ Définition :
+• L’IA est la science qui permet aux machines de réaliser des tâches nécessitant 
+normalement l’intelligence humaine.
+• L'IA désigne l'ensemble des techniques permettant à une machine de simuler des 
+capacités cognitives humaines : raisonner, percevoir, décider, apprendre.
+Règles Données Résultat
+--- Page 15 ---
+Relation entre IA, ML et DL
+❑ Machine Learning 
+❑ Définition :
+• Discipline de l’IA qui permet aux systèmes d’apprendre automatiquement à 
+partir des données sans être explicitement programmés.
+• Le machine learning (ML) est une branche de l’intelligence artificielle (IA) qui 
+vise à permettre aux ordinateurs et aux machines d’imiter la façon dont 
+les humains apprennent, d’effectuer des tâches de manière autonome et 
+d’améliorer leur performance et leur précision à mesure qu’ils gagnent en 
+expérience et qu’ils sont exposés à de nouvelles données.
+--- Page 16 ---
+Relation entre IA, ML et DL 
+❑ Machine Learning 
+➢ Exemples concrets :
+Santé : détection de maladies sur radios médicales
+Transports : voitures autonomes
+Finance : détection de fraude bancaire
+Services : Netflix, Spotify → recommandations
+Visuel : Icônes ou images par domaine
+--- Page 17 ---
+Relation entre IA, ML et DL 
+❑ Deep Learning 
+❑ Définition :
+•Technique d’apprentissage basée sur des réseaux de neurones profonds (plusieurs 
+couches).
+•Capable d’apprendre automatiquement des représentations complexes à partir 
+de grandes quantités de données.
+➢ Exemples concrets :
+Reconnaissance d’images → distingue un chat d’un chien en apprenant les 
+caractéristiques visuelles.
+--- Page 18 ---
+Relation entre IA, ML et DL
+❑ Intelligence artificielle vs Machine Learning vs Deep-Learning
+Critère IA ML DL
+Définition Domaine global qui vise 
+à créer des systèmes 
+capables de simuler 
+l’intelligence humaine 
+(raisonnement, 
+perception, prise de 
+décision).
+Sous-domaine de l’IA 
+où les systèmes 
+apprennent à partir 
+de données et 
+s’améliorent sans être 
+explicitement 
+programmés.
+Sous-domaine du ML utilisant 
+des réseaux de neurones 
+profonds (Deep Neural 
+Networks) pour apprendre 
+automatiquement des 
+représentations complexes.
+Niveau 
+d’abstraction
+Concept large et 
+englobant
+Plus spécialisé Très spécifique et technique
+Méthodes 
+utilisées
+Règles, logique, systèmes 
+experts, algorithmes 
+d’optimisation, ML, etc.
+Régression, arbres de 
+décision, SVM, K-
+means, etc.
+Réseaux de neurones (CNN, 
+RNN, Transformers, GAN, 
+etc.)
+--- Page 19 ---
+Relation entre IA, ML et DL
+❑ Intelligence artificielle vs Machine Learning vs Deep-Learning
+Critère IA ML DL
+Type de 
+données
+Peut fonctionner avec 
+peu ou pas de données 
+(ex. systèmes experts)
+Nécessite un volume 
+de données modéré 
+pour l’apprentissage
+Nécessite un très grand 
+volume de données et de 
+puissance de calcul
+Exemples 
+d’applications Chatbots, systèmes experts médicaux, 
+robotique, planification
+Détection de spam, 
+recommandation de 
+films, prévisions 
+météo
+Reconnaissance d’images, 
+traduction automatique, 
+conduite autonome
+Complexité Large mais pas toujours 
+technique (peut inclure 
+règles simples)
+Moyenne, dépend des 
+algorithmes choisis
+Très complexe (architectures 
+profondes, optimisation 
+lourde)
+Ressources 
+nécessaires
+Variables (faibles à 
+élevées)
+Modérées Très élevées (GPU, cloud 
+computing)
+--- Page 20 ---
+Machine Learning
+❑ Qu’est-ce que Machine Learning ? 
+✓ L’apprentissage automatique, c’est…
+… apprendre à partir des données.
+
+--- Page 21 ---
+Machine Learning
+❑ Notions de Base en Machine Learning 
+❑ Données :
+• Les données sont au coeur du machine learning.
+Elles peuvent être structurées (tableaux, bases de données) ou non structurées 
+(images, textes).
+❑ Features (Caractéristiques) :
+• Ce sont les variables d'entrée sur lesquelles le modèle fait ses prédictions.
+Exemples : Surface d'une maison, âge d'un patient, couleur d'un fruit.
+❑ Labels (Étiquettes) :
+• Ce sont les résultats ou les cibles que le modèle essaie de prédire.
+Exemples : Prix d'une maison (régression), catégorie d'un email (spam ou non) 
+(classification).
+--- Page 22 ---
+Machine Learning
+❑ Notions de Base en Machine Learning 
+❑ Modèle :
+• Un modèle de machine learning est une fonction qui associe les features aux 
+labels.
+• Il peut être représenté par des équations (régression) ou des structures plus 
+complexes (réseaux neuronaux, forêts d'arbres).
+➢ Exemples : Régression linéaire, Arbre de décision, K plus proches voisins 
+(KNN).
+❑ Entraînement :
+L'entraînement consiste à ajuster les paramètres du modèle à partir des données 
+d'entrée (features) et de sortie (labels).
+➢ Exemple : Ajuster les coefficients dans une régression linéaire pour minimiser 
+l'erreur de prédiction.
+--- Page 23 ---
+Machine Learning
+❑ Notions de Base en Machine Learning 
+❑ Test :
+• Tester le modèle sur de nouvelles données (données non vues durant 
+l'entraînement) pour évaluer sa performance.
+➢ Exemple : Utiliser un ensemble de test pour vérifier si le modèle peut prédire 
+correctement les prix des maisons.
+❑ Évaluation des Performances :
+Mesurer la précision du modèle avec des métriques adaptées au problème 
+(précision, rappel, F1-score, RMSE, etc.).
+➢ Exemple : Calculer la précision dans une tâche de classification ou l’erreur 
+quadratique moyenne (RMSE) dans une tâche de régression.
+--- Page 24 ---
+Typologie de l'apprentissage
+❑ Types de Machine Learning
+❖ Apprentissage 
+Supervisé:
+Données étiquetées : le 
+modèle apprend une 
+association entrée → sortie 
+connue.
+❖ Apprentissage par Renforcement
+Un agent apprend par essais-erreurs
+grâce à des récompenses et pénalités.
+❖ Apprentissage non 
+supervisé
+Données non étiquetées : 
+le modèle découvre une
+structure ou des groupes
+cachés.
+❖ Apprentissage semi supervisé
+Peu de données étiquetées + 
+beaucoup de données non 
+étiquetées, combinées.
+--- Page 25 ---
+Typologie de l'apprentissage
+❑ Apprentissage Supervisé
+❑ Principe
+• Le modèle reçoit des paires (entrée, sortie attendue) et apprend à reproduire 
+cette association. On mesure l'écart entre sa prédiction et la vraie réponse pour 
+l'ajuster. Données
+étiquetées Modèle Prédiction
+• Comparée à la vérité terrain → ajustement du modèle (boucle répétée)
+❑ Deux grandes familles de taches
+• Régression: Prédire une valeur continue (ex : prix d'une maison, 
+température).
+• Classification: Prédire une catégorie (ex : spam / non-spam, type de fleur).
+--- Page 26 ---
+Typologie de l'apprentissage
+❑ Apprentissage non Supervisé
+❑ Principe
+• Aucune réponse attendue n'est fournie. Le modèle explore les données pour 
+en révéler l'organisation interne : groupes, structure, ou éléments atypiques.
+➔ Comment ces données s'organisent-elles naturellement ? 
+❑ Taches
+• Clustering: Regrouper des éléments similaires (ex : segmentation clients par 
+comportement d'achat).
+• Réduction de dimension: Simplifier des données complexes en conservant
+l'essentiel (ex : ACP pour visualiser des données à 100 variables).
+• Détection d’anomalies: Repérer les éléments atypiques (ex : détection de 
+fraude bancaire, panne machine).
+--- Page 27 ---
+Typologie de l'apprentissage
+❑ Apprentissage semi Supervisé
+❑ Principe
+• Le compromis entre données étiquetées (rares) et non étiquetées 
+(abondantes)
+• Étiqueter des données coûte souvent cher en temps et en expertise (ex : faire 
+annoter des images médicales par un radiologue). 
+• Le semi-supervisé exploite les données non étiquetées, bien plus faciles à 
+obtenir, pour améliorer un modèle entraîné sur peu d'exemples étiquetés.
+❑ Exemple:
+En imagerie médicale, seuls quelques centaines de scans sont annotés par des 
+médecins, mais des milliers d'images brutes sont disponibles. Le modèle apprend
+d'abord une représentation générale sur toutes les images, puis se spécialise grâce 
+aux exemples annotés.
+--- Page 28 ---
+Typologie de l'apprentissage
+❑ Apprentissage par renforcement
+❑ Principe
+• Un agent apprend en interagissant avec un environnement, guidé par des 
+recompenses
+❑ Concepts clés: 
+• État — la situation actuelle de l'environnement
+• Action — un choix possible de l'agent
+• Récompense — un signal de succès ou d'échec
+• Politique — la stratégie apprise par l'agent
+❑ Exemples : AlphaGo (jeu de Go), robots apprenant à marcher, véhicules 
+autonomes, systèmes de recommandation qui s'ajustent aux clics en temps réel.
+Agent Environnement
+Action ->
+<- Récompense +nouvel état
+--- Page 29 ---
+Typologie de l'apprentissage
+• Un repère rapide pour choisir le bon paradigme selon le contexte
+Type Données Objectif Exemple
+Supervisé Entrées + sorties connues (étiquetées) Prédire une sortie pourde nouvelles entrées Détection de spam
+Non 
+supervisé Aucune étiquette Découvrir une structure cachée Segmentation clients
+Semi-
+supervisé
+Peu étiquetées + beaucoup 
+non étiquetées
+Généraliser malgré le
+peu d'étiquettes
+Classification 
+d'images médicales
+Par 
+renforcement
+Interactions agent / 
+environnement
+Maximiser une 
+récompense cumulée
+AlphaGo, 
+robotique
+➔ La présence ou l'absence d'étiquettes, et le mode d'interaction avec les 
+données, déterminent le paradigme d'apprentissage adapté à un problème donné.
+--- Page 30 ---
+Cycle de vie d'un projet ML
+Sept étapes qui se répètent et s'affinent au fil des itérations
+01
+Compréhension du 
+problème métier
+→
+02
+Collecte des 
+données
+→
+03
+Exploration et 
+nettoyage (EDA)
+→
+04
+Feature 
+engineering
+07
+Déploiement & 
+monitoring
+←
+06
+Évaluation
+←
+05
+Modélisation
+Itération si 
+résultat non 
+satisfaisant
+➔ Un résultat décevant à l'étape 6 (évaluation) renvoie souvent vers l'étape 3 ou 4 : plus de 
+données, de meilleures variables, un nettoyage plus poussé. 
+--- Page 31 ---
+Cycle de vie d'un projet ML
+❑ Étape 1 · Compréhension du problème métier
+➔ Comprendre ce que l'on cherche vraiment à résoudre
+❑ Objectif:
+• Traduire un besoin métier flou (« réduire le churn », « détecter la fraude ») en un 
+problème de Machine Learning précis, mesurable, et réaliste compte tenu des 
+données disponibles.
+➢ Quel est l'objectif métier précis ?
+➢ Quel type de tâche ML cela implique-t-il ?
+➢ Quelles données sont réellement disponibles ?
+➢ Comment mesurera-t-on le succès (KPI) ?
+--- Page 32 ---
+Cycle de vie d'un projet ML 
+❑  Étape 2 · Collecte des données
+Rassembler les données nécessaires, où qu'elles se trouvent
+Bases de données internes
+CRM, ERP , systèmes 
+transactionnels, entrepôts 
+de données de l'entreprise
+API & services externes
+Données météo, 
+financières, réseaux 
+sociaux, fournisseurs tiers
+Webscraping
+Extraction de données 
+publiques sur le web (dans 
+le respect du cadre légal)
+Collecte manuelle / 
+capteurs
+Enquêtes, annotation 
+humaine, IoT, capteurs
+terrain
+--- Page 33 ---
+Cycle de vie d'un projet ML 
+❑ Étape 3 · Exploration et nettoyage des données
+Comprendre les données avant de les modéliser — l'étape souvent la plus longue
+Exploration (EDA)
+• Statistiques descriptives (moyenne, distribution, valeurs 
+extrêmes)
+• Visualisations : histogrammes, nuages de points, 
+correlations
+• Identification des relations entre variables
+• Compréhension du déséquilibre des classes (le cas 
+échéant)
+Nettoyage des données
+• Traitement des valeurs manquantes (suppression ou
+imputation)
+• Détection et gestion des valeurs aberrantes (outliers)
+• Suppression des doublons et incohérences
+• Normalisation des formats (dates, unités, encodages
+de texte)
+--- Page 34 ---
+Cycle de vie d'un projet ML 
+❑ Étape 4 : Feature engineering
+• Créer et sélectionner les variables qui donneront le plus d'information au modèle
+• De bonnes variables (features) peuvent avoir plus d'impact sur la performance 
+finale que le choix de l'algorithme lui-même. C'est souvent ici que se joue la qualité
+du modèle.
+ ➔ Les meilleurs modèles ne remplacent pas de bonnes variables. 
+--- Page 35 ---
+Cycle de vie d'un projet ML 
+❑ Étape 5 · Modélisation
+Choisir, entraîner et ajuster un ou plusieurs modèles candidats
+1
+Split train / test
+Séparer les données 
+pour évaluer sur des 
+exemples jamais vus 
+par le modèle
+→
+2
+Choix des 
+algorithmes
+Tester plusieurs 
+familles : régression, 
+arbres, forêts 
+aléatoires, réseaux de 
+neurones...
+→
+3
+Entraînement
+Ajuster les paramètres 
+du modèle pour 
+minimiser l'erreur sur 
+les données 
+d'entraînement
+→
+4
+Validation croisée
+Répéter 
+l'entraînement sur 
+différents sous-
+ensembles pour 
+fiabiliser les résultats
+➔ On entraîne souvent plusieurs modèles en parallèle avant de comparer leurs 
+performances à l'étape suivante.
+--- Page 36 ---
+Cycle de vie d'un projet ML 
+❑ Étapes 6 et 7 · Évaluation, déploiement & monitoring
+Valider rigoureusement, puis mettre en production sans jamais cesser de surveiller
+Étape 6 · Évaluation
+• Mesurer la performance du modèle sur des données 
+de test avec des métriques adaptées au problème 
+(accuracy, RMSE, F1-score...) et vérifier l'absence de 
+sur-apprentissage (overfitting).
+➢ Comparaison de plusieurs modèles candidats
+➢ Vérification sur des sous-groupes (biais, équité)
+➢ Validation avec les parties prenantes métier
+Étape 7 · Déploiement & monitoring
+• Le modèle est mis en production (API, application, 
+batch) puis surveillé en continu : ses performances 
+peuvent se dégrader si les données réelles évoluent 
+(« data drift »).
+➢ Intégration dans les systèmes existants
+➢ Suivi des performances en conditions réelles
+➢ Ré-entraînement périodique si nécessaire
